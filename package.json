@@ -1,0 +1,15 @@
+{
+  "name": "microsoft-365-dns-checker",
+  "version": "1.1.3",
+  "private": true,
+  "description": "Check the Microsoft 365 DNS records of your domain: MX, SPF, Autodiscover, DMARC and DKIM selector CNAMEs, with optional comparison to your tenant values.",
+  "license": "SEE LICENSE IN LICENSE",
+  "homepage": "https://sistem.eretek.com/en/tools/microsoft-365-dns-checker",
+  "scripts": {
+    "start": "node scripts/serve.js",
+    "test": "node test/run.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,112 @@
+{
+ "tests": [
+  {
+   "in": {
+    "domain": "contoso.com"
+   },
+   "dns": {
+    "contoso.com|MX": {
+     "status": "ok",
+     "answers": [
+      {
+       "type": "MX",
+       "TTL": 1,
+       "data": "0 contoso-com.mail.protection.outlook.com."
+      }
+     ]
+    },
+    "contoso.com|TXT": {
+     "status": "ok",
+     "answers": [
+      {
+       "type": "TXT",
+       "TTL": 1,
+       "data": "\"v=spf1 include:spf.protection.outlook.com -all\""
+      }
+     ]
+    },
+    "autodiscover.contoso.com|CNAME": {
+     "status": "ok",
+     "answers": [
+      {
+       "type": "CNAME",
+       "TTL": 1,
+       "data": "autodiscover.outlook.com."
+      }
+     ]
+    }
+   },
+   "v": {
+    "MX": "ok",
+    "SPF": "ok",
+    "Autodiscover": "ok",
+    "DMARC": "miss",
+    "DKIM selector1": "miss"
+   }
+  },
+  {
+   "in": {
+    "domain": "contoso.com"
+   },
+   "dns": {
+    "contoso.com|MX": {
+     "status": "ok",
+     "answers": [
+      {
+       "type": "MX",
+       "TTL": 1,
+       "data": "10 mx1.filtre-saglayici.net."
+      }
+     ]
+    }
+   },
+   "v": {
+    "MX": "ext"
+   }
+  },
+  {
+   "in": {
+    "domain": "contoso.com"
+   },
+   "dns": {
+    "contoso.com|TXT": {
+     "status": "ok",
+     "answers": [
+      {
+       "type": "TXT",
+       "TTL": 1,
+       "data": "\"v=spf1 -all\""
+      },
+      {
+       "type": "TXT",
+       "TTL": 1,
+       "data": "\"v=spf1 include:spf.protection.outlook.com -all\""
+      }
+     ]
+    }
+   },
+   "v": {
+    "SPF": "dup"
+   }
+  },
+  {
+   "in": {
+    "domain": "contoso.com"
+   },
+   "dns": {
+    "contoso.com|MX": {
+     "status": "servfail"
+    }
+   },
+   "v": {
+    "MX": "unv"
+   }
+  },
+  {
+   "in": {
+    "domain": "http://contoso.com/"
+   },
+   "err": "domain"
+  }
+ ]
+}
